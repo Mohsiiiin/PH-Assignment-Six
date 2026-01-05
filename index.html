@@ -62,25 +62,40 @@ generations.</p>
  </div>
 
  <!-- main section parent-div-->
-  <div class="bg-green-50">
+  <div class="bg-green-50 min-h-screen">
+  <h1 class="text-4xl font-bold text-center py-6">Choose Your Trees</h1>
 
-  <div class=" w-11/12 max-auto p-4">
-   
-    <!-- card section -->
-     <section>
+  <div class="flex gap-20 max-auto px-28 mt-10 ">
+
       <!-- left Categories section-->
-      <div class="flex-col flex-1">
-      <h1 class="text-2xl text-black font-semibold items-center mb-3">Categories</h1>
-      <ul id="left-side">  
-      </ul>
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="w-full md:w-64 flex-shrink-0">
+        <h1 class="text-2xl text-black font-bold items-start mb-3">Categories</h1>
+        <ul id="left-side">  
+        </ul>
+        </div>
+      </div>
+      
+
+      <!-- Choose Your Trees section -->
+      <div class="flex-1">
+
+        <div id="Choose-trees" class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 ">
+        </div>
 
       </div>
-     </section>
+
+      <!-- cart section -->
+       <div class="bg-white text-black rounded-2xl w-[220px] h-[520px]">
+        <h1 class="font-semibold pt-4 ml-3 text-2xl ">Your Cart</h1>
+       </div>
    
+  </div>
 
+  </div>
 
-    <!-- Campaign section-->
-   <div class="mb-10">
+  <!-- Campaign section-->
+   <div class="bg-green-50 py-16">
     <h1 class="flex justify-center text-4xl font-bold my-10">About the Campaign</h1>
     <div class="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12 max-w-5xl mx-auto px-4">
       <img src="./assets/about.png" class="w-full max-w-sm md:max-w-md lg:max-w-lg alt="">
@@ -94,9 +109,6 @@ generations.</p>
       </div>
     </div>
    </div>
-  </div>
-
-  </div>
   
 
   <!-- Our Impact Section -->
