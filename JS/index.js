@@ -5,11 +5,18 @@ const loadCetagory = () => {
     .then(data => displayCategory(data.categories))
 }
 
+const randomData = ()=>{
+    const url ="https://openapi.programming-hero.com/api/plants"
+    fetch(url)
+    .then(res => res.json())
+    .then(data =>displayPlants(data.plants.slice(0,3)))
+}
+
 const loadTrees=(id)=>{
     const url =`https://openapi.programming-hero.com/api/category/${id}`
 
     // category-btn-active
-     
+
     const categoryBtn = document.querySelectorAll(".btn-category");
     for(let btn of categoryBtn ){
         btn.classList.remove("active")
@@ -23,6 +30,7 @@ const loadTrees=(id)=>{
     .then(data => displayPlants(data.plants))
 }
 
+// card-section
 const displayPlants = (plants) =>{
     const ChooseTrees =document.getElementById("Choose-trees");
     ChooseTrees.innerHTML ="";
@@ -52,6 +60,7 @@ const displayPlants = (plants) =>{
     }
 }
 
+// left-category
 const displayCategory = (categories) => {
     const catCategory = document.getElementById("left-side");
     catCategory.innerHTML = "";
@@ -65,3 +74,4 @@ const displayCategory = (categories) => {
 }
 
 loadCetagory();
+randomData();
