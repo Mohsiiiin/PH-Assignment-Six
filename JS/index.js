@@ -7,6 +7,16 @@ const loadCetagory = () => {
 
 const loadTrees=(id)=>{
     const url =`https://openapi.programming-hero.com/api/category/${id}`
+
+    // category-btn-active
+     
+    const categoryBtn = document.querySelectorAll(".btn-category");
+    for(let btn of categoryBtn ){
+        btn.classList.remove("active")
+    }
+
+    const currentBtn= document.getElementById(`category-btn-${id}`);
+    currentBtn.classList.add("active")
     
     fetch(url)
     .then(res => res.json())
@@ -42,10 +52,6 @@ const displayPlants = (plants) =>{
     }
 }
 
-
-
-
-
 const displayCategory = (categories) => {
     const catCategory = document.getElementById("left-side");
     catCategory.innerHTML = "";
@@ -53,11 +59,9 @@ const displayCategory = (categories) => {
     for (let category of categories) {
         const leftCategory = document.createElement("div")
         leftCategory.innerHTML =`
-        <button onclick = "loadTrees(${category.id})" class="btn justify-start btn-block shadow flex-1">${category.category_name} </button>`;
+        <button id="category-btn-${category.id}" onclick = "loadTrees(${category.id})" class="btn justify-start btn-block shadow flex-1 btn-category">${category.category_name} </button>`;
         catCategory.append(leftCategory);
     }
 }
-
-
 
 loadCetagory();
