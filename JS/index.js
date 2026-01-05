@@ -30,6 +30,13 @@ const loadTrees=(id)=>{
     .then(data => displayPlants(data.plants))
 }
 
+const loadTreeDetails=(id)=>{
+    const url =`https://openapi.programming-hero.com/api/plant/${id}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayModal(data.plants))
+}
+
 // card-section
 const displayPlants = (plants) =>{
     const ChooseTrees =document.getElementById("Choose-trees");
@@ -38,7 +45,7 @@ const displayPlants = (plants) =>{
     for(let plant of plants){
         const plantCard = document.createElement("div")
         plantCard.innerHTML= `
-        <div class="card bg-base-100 transition-shadow w-[320px] h-[520px]">
+        <div onclick="loadTreeDetails(${plant.id})" class="card bg-base-100 transition-shadow w-[320px] h-[520px]">
             <figure>
             <img
                 src="${plant.image}"
@@ -71,6 +78,19 @@ const displayCategory = (categories) => {
         <button id="category-btn-${category.id}" onclick = "loadTrees(${category.id})" class="btn justify-start btn-block shadow flex-1 btn-category">${category.category_name} </button>`;
         catCategory.append(leftCategory);
     }
+}
+
+const displayModal = (plants) =>{
+   const detailsContainer =document.getElementById("details-container");
+   detailsContainer.innerHTML= `<div>
+        <img src="${plants.image}" alt="">
+      </div 
+      <p>${plants.category}</p>
+      <p>${plants.description}</p>
+      <h1>${plants.price}</h1>`;
+      
+    document.getElementById("my_modal_5").showModal();
+
 }
 
 loadCetagory();
