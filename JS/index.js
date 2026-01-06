@@ -84,7 +84,7 @@ const displayModal = (plants) =>{
    const detailsContainer =document.getElementById("details-container");
    detailsContainer.innerHTML= `<div>
         <img src="${plants.image}" alt="">
-      </div 
+      </div>
       <p>${plants.category}</p>
       <p>${plants.description}</p>
       <h1>${plants.price}</h1>`;
@@ -92,6 +92,7 @@ const displayModal = (plants) =>{
     document.getElementById("my_modal_5").showModal();
 
 }
+
 
 loadCetagory();
 randomData();
